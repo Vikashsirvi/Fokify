@@ -8,7 +8,6 @@ import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import { async } from 'regenerator-runtime/runtime';
 
 const controlRecipes = async function () {
   try {
@@ -99,10 +98,14 @@ const contorlAddRecipe = async function (newRecipe) {
 
     //Success Message
     addRecipeView.renderMessage();
+    //Render the bookmark view
+    bookmarksView.render(model.state.bookmarks);
+
+    //change ID in URL
+    window.history.pushState(null, '', `#${model.state.recipe.id}`);
+
     //close form window
-    setTimeout(function () {
-      // addRecipeView.toggleWindow();
-    }, MODEL_CLOSE_SEC * 1000);
+    setTimeout(function () {}, MODEL_CLOSE_SEC * 1000);
   } catch (err) {
     console.error(err);
     addRecipeView.renderError(err.message);
