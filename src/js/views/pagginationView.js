@@ -22,6 +22,9 @@ class PagginationView extends View {
     // Page 1, and there are other pages
     if (curPage === 1 && numPages > 1) {
       return `
+      <div class="heading--3">
+    Total Page ${numPages}
+    </div>
         <button data-goto="${
           curPage + 1
         }" class="btn--inline pagination__btn--next">
@@ -43,6 +46,9 @@ class PagginationView extends View {
                 </svg>
             <span>Page ${curPage - 1}</span>
         </button>
+        <div class="heading--3">
+    Total Page ${numPages}
+    </div>
         `;
     }
     //Other page
@@ -54,8 +60,11 @@ class PagginationView extends View {
         <svg class="search__icon">
           <use href="${icons}#icon-arrow-left"></use>
         </svg>
-        <span>Page ${curPage - 1}</span>
+        <span >Page ${curPage - 1}</span>
     </button>
+    <div class="heading--3">
+    Total Page ${numPages}
+    </div>
     <button data-goto="${
       curPage + 1
     }" class="btn--inline pagination__btn--next">
