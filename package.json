@@ -19,7 +19,6 @@
     "fractional": "^1.0.0",
     "regenerator-runtime": "^0.13.7"
   },
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vikashsirvi/Fokify.git"
